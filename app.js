@@ -11,6 +11,7 @@ app.use(express.static('public')); // allows files to be looked up and access pu
 app.use(expressLayouts);
 
 app.set('layout','./layouts/main'); // where the main layout will be for our custom layouts
+app.set('view engine', 'ejs');
 
 const routes = require('./server/routes/recipeRoutes.js'); //
 app.use('/', routes);
