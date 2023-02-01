@@ -8,7 +8,7 @@
 </nav>
 
 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
-    <% if(categories != '') {%>
+    <% if(categories != '') { %>
         <% categories.forEach(function(category, index) { %>
             <a href="/<%- category.name -%> " class="col text-center category__link">
                 <div class="category__img shadow">

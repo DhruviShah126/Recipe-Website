@@ -34,7 +34,7 @@ exports.allCategories = async(req, res) => {
 //                 Step 2: Push the veggies on one side of the skillet and the eggs (beaten). Cook the eggs to scramble.
 //                 Step 3: Stir in the cooked rice along with the soy sauce, sriracha, salt, and pepper. Mix the rice, eggs, and veggies all together. Cook on low heat for 3-5 minutes by stirring the rice often.
 //                 Step 4: Finally, add the spring onions and turn off the heat. Transfer the veggie fried rice to a bowl and serve.
-                
+               
 //                 Source: https://www.cookinwithmima.com/vegetable-fried-rice/`,
 //                 "email": "Mariam Ezzeddine",
 //                 "ingredients": [
@@ -48,7 +48,7 @@ exports.allCategories = async(req, res) => {
 //                     "Sriracha - 1 tsp",
 //                     "Salt - 1 tsp",
 //                     "Ground black pepper - 1/2 tsp",
-//                     "Chopped spring onions - 2 tbsp"
+//                     "Chopped spring onions - 2 tbsp",
 //                 ],
 //                 "category": "Chinese",
 //                 "image": "fried_rice.jpg"
@@ -57,10 +57,41 @@ exports.allCategories = async(req, res) => {
 //             {
 //                 "name": "Chimichanga",
 //                 "description": `
-//                 Step 1: 
-//                 Step 2: 
-//                 Step 3: 
-                
+//                  - Preparing the Filling -      
+//                      Step 1: Take a pan and heat some oil on it
+//                      Step 2: Add finely chopped garlic and jalapeno and roast it
+//                      Step 3: Add 1 tsp of cumin powder and mix
+//                      Step 4: Add chopped zucchini and bell peppers and mix
+//                      Step 5: Add chopped onions and salt 
+//                      Step 6: Cover the pan and cook for 2 minutes or until vegetables are soft
+//                      Step 7: Add cumin powder, taco seasoning, and oregno and mix
+//                      Step 8: Add in the black beans and mix
+//                      Step 9: Add in 1 tsp of chilli powder and mix
+//                      Step 10: Cover the pan and let it cook for 1 minute
+//                      Step 11: Uncover and cook for 1 more minute
+
+//                 - Making the Sealing Paste -
+//                      Step 1: Add all purpose flour to a small bowl
+//                      Step 2: Add in water until you get a consistency that it a little bit thinner than a paste but not too liquidy
+
+//                 - Assembling -
+//                     Step 1: Grab a tortilla and place your filling in the center
+//                     Optional: If you want to add rice, you can place the rice first and then add your filling on top of it
+//                     Step 2: Sprinkle on as much cheese as you'd like
+//                     Step 3: Fold your toritilla. You want to fold it hotdog style from each end first and then fold it up hamburger style
+//                     Step 4: At the end of the tortilla, spread the all purpose flour paste to help seal the chimichanga together
+//                     Step 5: Repeat steps 1 - 4 to make as many chimichangas as you like
+                 
+//                 - Frying -
+//                     Step 1: In a large pan, heat up enough oil to fry your chimichangas
+//                     Step 2: Make sure there are no holes in your chimichanga
+//                     Step 3: Place in your chimichanga for a could of seconds unti it turns golden brown
+//                     Step 4: Flip the chimichanga and fry on the other side until golden brown
+//                     Step 5: Repeat steps 2 - 4 for all of your chimichangas
+
+//                 - Plating -
+//                 You can serve these with sour cream, guacamole, hot sauces, enchilada sauces, rice, or any other side of your choice
+
 //                 Source: https://www.youtube.com/watch?v=DDZeKZp75xg&list=PLxXflsw7KieYZBeixCobOF9kixma52eHF&index=8&t=2s`,
 //                 "email": "Cooking with Mitisha",
 //                 "ingredients": [
@@ -70,11 +101,14 @@ exports.allCategories = async(req, res) => {
 //                     "Finely chopped garlic - 3 cloves",
 //                     "Medium Zucchini (peeled and diced) - 1",
 //                     "Black beans (rinsed and drained) - 1 can",
-//                     "Jalapeno - 1/2 ",
+//                     "Fresh Jalapeno Pepper - 1/2 ",
 //                     "Taco seasoning - 1 tbsp",
-//                     "Cumin powder - 1 tsp",
+//                     "Cumin powder - 2 tsp",
 //                     "Chili powder - 1 tsp",
-//                     "Salt and Pepper - as per taste"
+//                     "Salt and Pepper - as per taste",
+//                     "Large Tortillas - 1 bag or as many as you want to make",
+//                     "Shredded Cheese",
+//                     "All-purpose flour - 1 tbsp",
 //                 ],
 //                 "category": "Mexican",
 //                 "image": "chimichanga.jpg"
@@ -94,7 +128,7 @@ exports.allCategories = async(req, res) => {
 //                     Step 3: Brush eggplant slices with oil on each side
 //                     Step 4: Arrange eggplant in a single layer on the trays and bake for about 35 - 45 mins or until it is tender and brown. About half way through, turn the eggplant slices.
 //                     Step 5: Remove from the oven and let the eggplant cool
-                
+               
 //                 - Making the Tomato Sauce -
 //                     Step 1: Heat olive oil on a large skillet on medium-high heat. Sautee onions and garlic for 3 minutes or until they are golden brown
 //                     Step 2: Pour in the tomato puree, canned tomatoes, water, oregano, and sugar
@@ -135,7 +169,7 @@ exports.allCategories = async(req, res) => {
 //                     "Dried oregano - 1/2 tsp",
 //                     "Water - 1 cup",
 //                     "Salt - 2/4 tsp",
-//                     "Black pepper - 1/4 tsp"
+//                     "Black pepper - 1/4 tsp",
 //                 ],
 //                 "category": "Italian",
 //                 "image": "eggplant_parmesan.jpg"
@@ -149,7 +183,7 @@ exports.allCategories = async(req, res) => {
 //                     Step 3: Finely chop your bell pepper
 //                     Step 4: Finely chop your cilantro
 //                     Step 5: Finely chop your onion
-                
+               
 //                 - Making the Bhaji -
 //                     Step 1: In a large pan, add 1 tbsp of butter and all of your vegetables (tomatoes, bell peppers, potatoes, peas), 1 tsp of salt and sautee the vegetables
 //                     Step 2: Add 1/2 cup of water and mix well
@@ -162,7 +196,7 @@ exports.allCategories = async(req, res) => {
 //                     Step 9: Mix everything together
 //                     Step 10: Add 1/2 cup of water to make it more liquid like
 //                     Step 11: Mash everything and boil for 5 minutes
-                
+               
 //                 - Prepping the Pav -
 //                     Step 1: Add a little bit of butter in the pan
 //                     Step 2: Place your pav and roast it until golden brown
