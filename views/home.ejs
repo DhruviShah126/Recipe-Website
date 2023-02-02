@@ -41,38 +41,17 @@
         <h2>Latest Recipes</h2>
         <a href="/latest-recipes" class="ms-auto">View More</a>
     </div>
-
     <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="img/banana_bread.jpg" alt="View All Food" Loading="lazy">
-            </div>
-            <div class="pt-1">Eggless Banana Bread</div>
-        </a>
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="img/banana_bread.jpg" alt="View All Food" Loading="lazy">
-            </div>
-            <div class="pt-1">Eggless Banana Bread</div>
-        </a>
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="img/banana_bread.jpg" alt="View All Food" Loading="lazy">
-            </div>
-            <div class="pt-1">Eggless Banana Bread</div>
-        </a>
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="img/banana_bread.jpg" alt="View All Food" Loading="lazy">
-            </div>
-            <div class="pt-1">Eggless Banana Bread</div>
-        </a>
-        <a href="/recipe/#" class="col text-center category__link">
-            <div class="category__img category__img--large shadow">
-                <img src="img/banana_bread.jpg" alt="Eggless Banana Bread" Loading="lazy">
-            </div>
-            <div class="pt-1">Eggless Banana Bread</div>
-        </a>
+        <% if(food != '') { %>
+            <% food.latest.forEach(function(recipe, index) { %>
+                <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+                    <div class="category__img category__img--large shadow">
+                        <img src="uploads/<%= recipe.image %>" alt="<%= recipe.name %>" Loading="lazy">
+                    </div>
+                    <div class="pt-1"><%= recipe.name %></div>
+                </a>
+            <% }) %>
+        <% } %>
     </div>
 </section>
 <!-- Latest Recipies End-->
