@@ -27,275 +27,669 @@ exports.allCategories = async(req, res) => {
     }
 }
 
-// async function insertRecipeData() {
-//     try {
-//         await Recipe.insertMany([
-//             {
-//                 "name": "Vegetable Fried Rice",
-//                 "description": `
-//                 * Note: this recipe makes 4 portions *
-//
-//                 Step 1: To a large skillet on medium heat, add oil. Once the oil is heated add carrot and peas, ginger, and garlic. Cook for 2 minutes until the veggies soften a bit.
-//                 Step 2: Push the veggies on one side of the skillet and the eggs (beaten). Cook the eggs to scramble.
-//                 Step 3: Stir in the cooked rice along with the soy sauce, sriracha, salt, and pepper. Mix the rice, eggs, and veggies all together. Cook on low heat for 3-5 minutes by stirring the rice often.
-//                 Step 4: Finally, add the spring onions and turn off the heat. Transfer the veggie fried rice to a bowl and serve.
+async function insertRecipeData() {
+    try {
+        await Recipe.insertMany([
+            {
+                "name": "Crunchwrap Supreme",
+                "description": `
+                * Note: this recipe makes 4 portions *
+
+                - Prepping the Ingredients -
+                    Step 1: Cut the lettuce into thin rectangular strips
+                    Step 2: Dice the tomatoes
+                    Step 3: Dice the jalapenos into circles
+
+                - Preparing the Refried Beans -
+                    Step 1: Drain your can of black beans
+                    Step 2: Mash your beans (you should still have some whole beans left but they shoudl be mostly mashed)
+                    Step 3: Place a pan on medium heat and add 1 tbsp olive oil
+                    Step 4: Add in the minced garlic and sautee
+                    Step 5: Add in the black beans
+                    Step 6: Add in the ground cumin
+                    Step 7: Add in the paprika and mix
+
+                - Assembling the Crunchwrap -
+                    Step 1: Take 1 extra large tortilla and place your refried beans in the center in a circle about as big as your crunchy tostada
+                    Step 2: Spread nacho cheese over this refried bean layer
+                    Step 3: Place 1 crunchy tostada on top of the nacho cheese
+                    Step 4: Spread sour cream on top of the tostada
+                    Step 5: Add a layer of sliced lettuce
+                    Step 6: Sprinkle the diced tomatoes on top
+                    Step 7: Sprinkle some jalapenos on top
+                    Step 8: Sprinkle some shredded cheese on top
+                    Step 9: Place 1 mini flour tortilla on top
+                    Step 10: Fold the extra large tortilla in from all sides into the center to make a hexagonal like shape
                
-//                 Source: https://www.cookinwithmima.com/vegetable-fried-rice/`,
-//                 "email": "Mariam Ezzeddine",
-//                 "ingredients": [
-//                     "Olive oil - 2 tbsp ",
-//                     "Frozen peas and carrots - 1 cup",
-//                     "Grated ginger - 1 cup",
-//                     "Minced garlic - 1 tsp",
-//                     "Whole Eggs - 3",
-//                     "Cooked rice - 3 cups",
-//                     "Soy sauce - 2 tbsp",
-//                     "Sriracha - 1 tsp",
-//                     "Salt - 1 tsp",
-//                     "Ground black pepper - 1/2 tsp",
-//                     "Chopped spring onions - 2 tbsp",
-//                 ],
-//                 "category": "Chinese",
-//                 "image": "fried_rice.jpg"
-//
-//             },
-//             {
-//                 "name": "Chimichanga",
-//                 "description": `
-//                  - Preparing the Filling -      
-//                      Step 1: Take a pan and heat some oil on it
-//                      Step 2: Add finely chopped garlic and jalapeno and roast it
-//                      Step 3: Add 1 tsp of cumin powder and mix
-//                      Step 4: Add chopped zucchini and bell peppers and mix
-//                      Step 5: Add chopped onions and salt 
-//                      Step 6: Cover the pan and cook for 2 minutes or until vegetables are soft
-//                      Step 7: Add cumin powder, taco seasoning, and oregno and mix
-//                      Step 8: Add in the black beans and mix
-//                      Step 9: Add in 1 tsp of chilli powder and mix
-//                      Step 10: Cover the pan and let it cook for 1 minute
-//                      Step 11: Uncover and cook for 1 more minute
-//
-//                 - Making the Sealing Paste -
-//                      Step 1: Add all purpose flour to a small bowl
-//                      Step 2: Add in water until you get a consistency that it a little bit thinner than a paste but not too liquidy
-//
-//                 - Assembling -
-//                     Step 1: Grab a tortilla and place your filling in the center
-//                     Optional: If you want to add rice, you can place the rice first and then add your filling on top of it
-//                     Step 2: Sprinkle on as much cheese as you'd like
-//                     Step 3: Fold your toritilla. You want to fold it hotdog style from each end first and then fold it up hamburger style
-//                     Step 4: At the end of the tortilla, spread the all purpose flour paste to help seal the chimichanga together
-//                     Step 5: Repeat steps 1 - 4 to make as many chimichangas as you like
-//                 
-//                 - Frying -
-//                     Step 1: In a large pan, heat up enough oil to fry your chimichangas
-//                     Step 2: Make sure there are no holes in your chimichanga
-//                     Step 3: Place in your chimichanga for a could of seconds unti it turns golden brown
-//                     Step 4: Flip the chimichanga and fry on the other side until golden brown
-//                     Step 5: Repeat steps 2 - 4 for all of your chimichangas
-//
-//                 - Plating -
-//                 You can serve these with sour cream, guacamole, hot sauces, enchilada sauces, rice, or any other side of your choice
-//
-//                 Source: https://www.youtube.com/watch?v=DDZeKZp75xg&list=PLxXflsw7KieYZBeixCobOF9kixma52eHF&index=8&t=2s`,
-//                 "email": "Cooking with Mitisha",
-//                 "ingredients": [
-//                     "Olive oil - 2 tbsp",
-//                     "Onion - 1",
-//                     "Bell peppers - 1 and 1/2",
-//                     "Finely chopped garlic - 3 cloves",
-//                     "Medium Zucchini (peeled and diced) - 1",
-//                     "Black beans (rinsed and drained) - 1 can",
-//                     "Fresh Jalapeno Pepper - 1/2 ",
-//                     "Taco seasoning - 1 tbsp",
-//                     "Cumin powder - 2 tsp",
-//                     "Chili powder - 1 tsp",
-//                     "Salt and Pepper - as per taste",
-//                     "Large Tortillas - 1 bag or as many as you want to make",
-//                     "Shredded Cheese",
-//                     "All-purpose flour - 1 tbsp",
-//                 ],
-//                 "category": "Mexican",
-//                 "image": "chimichanga.jpg"
-//
-//             },
-//             {
-//                 "name": "Eggplant Parmigiana",
-//                 "description": `
-//                 * Note: this recipe makes 8 - 10 portions *
-//
-//                 - Prepping Ingredients -
-//                     Step 1: Slice eggplants lengthwise
-//                     Step 2: Finely dice onions
-//                     Step 3: Finely mince garlic
-//
-//                 - Baking the Eggplant - 
-//                     Step 1: Preheat the oven to 430°F
-//                     Step 2: Line 3 large trays with parchment paper
-//                     Step 3: Brush eggplant slices with oil on each side
-//                     Step 4: Arrange eggplant in a single layer on the trays and bake for about 35 - 45 mins or until it is tender and brown. About half way through, turn the eggplant slices.
-//                     Step 5: Remove from the oven and let the eggplant cool
-//               
-//                 - Making the Tomato Sauce -
-//                     Step 1: Heat olive oil on a large skillet on medium-high heat. Sautee onions and garlic for 3 minutes or until they are golden brown
-//                     Step 2: Pour in the tomato puree, canned tomatoes, water, oregano, and sugar
-//                     Step 3: Stir and bring to a simmer
-//                     Step 4: Simmer uncovered for 30 - 40 minutes, stirring occasionally until thickened. Half way through, add in the basil stalks
-//                     Step 5: The consistency should be a little thicker than a pasta sauce. If it is too thick, add in a little bit of water and cook for a little bit. 
-//                     Step 6: Remove the basil stalks and discard them
-//                     Step 7: Stir in the salt and black pepper
-//
-//                 - Assembling and Baking -
-//                     Step 1: Preheat oven to 350°F
-//                     Step 2: Place a little bit of tomato sauce at the bottom of the baking pan
-//                     Step 3: Place 1/3 of the eggplant slices so they cover the base of the pan
-//                     Step 4: Spread 1/3 of the reaminign sauce over this eggplant layer
-//                     Step 5: Drizzle with a little bit of olive oil
-//                     Step 6: Sprinkle 1/3 of the parmesan cheese over this
-//                     Step 7: Sprinkle 1/3 of the basil leaves over the layer
-//                     Step 8: Repeat with the next 1/3 of the eggplant, tomato sauce, olive oil, basil, and parmesan cheese
-//                     Step 9: Repeat again with the last remaining pieces of eggplant, tomato sauce and olive oil. Do not put basil on this top layer. Place the remaning parmesan and mozzarella
-//                     Step 10: Bake for 25 minutes
-//                     Step 11: Let it rest for 5 - 10 minutes. Place the rest of the basil leaves on top
-//                     Step 12: Serve
-//
-//                 Source: https://www.recipetineats.com/eggplant-parmigiana/`,
-//                 "email": "Nagi",
-//                 "ingredients": [
-//                     "Eggplants - 5",
-//                     "Olive oil - 1/4 cup",
-//                     "Grated parmesan cheese - 1 2/3 cups",
-//                     "Basil leaves (keep the stalks of the leaves separately) - 2 cups",
-//                     "Shredded mozzarella - 1 1/2 cups",
-//                     "Extra virgin olive oil - 1 tbsp",
-//                     "Onion - 1",
-//                     "Garlic cloves - 5",
-//                     "Tomato pureee - 20 oz",
-//                     "Canned tomatoes - 14 oz",
-//                     "White sugar - 1 1/2 tsp",
-//                     "Dried oregano - 1/2 tsp",
-//                     "Water - 1 cup",
-//                     "Salt - 2/4 tsp",
-//                     "Black pepper - 1/4 tsp",
-//                 ],
-//                 "category": "Italian",
-//                 "image": "eggplant_parmesan.jpg"
-//             },
-//             {
-//                 "name": "Pav Bhaji",
-//                 "description": `
-//                 * Note: this recipes makes 4 portions *
-//
-//                 - Prepping Ingredients -
-//                     Step 1: Boil and mash your potatoes
-//                     Step 2: Finely chop your tomatoes
-//                     Step 3: Finely chop your bell pepper
-//                     Step 4: Finely chop your cilantro
-//                     Step 5: Finely chop your onion
-//               
-//                 - Making the Bhaji -
-//                     Step 1: In a large pan, add 1 tbsp of butter and all of your vegetables (tomatoes, bell peppers, potatoes, peas), 1 tsp of salt and sautee the vegetables
-//                     Step 2: Add 1/2 cup of water and mix well
-//                     Step 3: Cover and boil for 10 minutes
-//                     Step 4: Mash everything in the pan until you get a smooth texture
-//                     Step 5: Add 1 tsp of chilli powder, 1/4 tsp of turmeric, 1 tsp of pav bhaji masala, 1 tsp kasuri methi, and 2 tbsp of cilantro leaves and sautee
-//                     Step 6: Move the bhaji to the sides to create a hole in the middle
-//                     Step 7: Add 1 tbsp of butter, 1/4 tsp of chilli powder, 1/2 tsp of pav bhaji masala, 1 tsp of kasuri methi, 1 tsp of ginger garlic paste, onions, cilantro, and a little bit of lemon juice in the middle 
-//                     Step 8: Sautee everything you just added in the center
-//                     Step 9: Mix everything together
-//                     Step 10: Add 1/2 cup of water to make it more liquid like
-//                     Step 11: Mash everything and boil for 5 minutes
-//               
-//                 - Prepping the Pav -
-//                     Step 1: Add a little bit of butter in the pan
-//                     Step 2: Place your pav and roast it until golden brown
-//                     Step 3: Serve with bhaji
-//
-//                 Source: https://hebbarskitchen.com/easy-mumbai-style-pav-bhaji-recipe/#Recipe_card_for_mumbai_pav_bhaji_recipe`,
-//                 "email": "Hebbars Kitchen",
-//                 "ingredients": [
-//                     "Butter - 2 tbsp",
-//                     "Tomatoes - 3",
-//                     "Peas - 1/4 cup",
-//                     "Bell pepper - 1/2",
-//                     "Potato - 2",
-//                     "Salt - 1 tsp",
-//                     "Red chilli powder - 1 and 1/4 tsp ",
-//                     "Turmeric - 1/4 tsp",
-//                     "Pav bhaji masala - 1 and 1/2 tsp",
-//                     "Kasuri methi - 2 tsp",
-//                     "Cilantro - 3 tbsp",
-//                     "Ginger garlic paste - 1 tsp",
-//                     "Onion - 1",
-//                     "Lemon juice - 1/2",
-//                     "Pav - 8",
-//                     "Water",
-//                 ],
-//                 "category": "Indian",
-//                 "image": "pav_bhaji.jpg"
-//
-//             },
-//             {
-//                 "name": "Vegan Pad Thai",
-//                 "description": `
-//                  * Note: This recipe makes 1 portion of noodles *
-//
-//                 - Preparing the tofu -
-//                     Step 1: Preheat oven to 375°F
-//                     Step 2: Dry the tofu with a paper towel
-//                     Step 3: Slice the tofu into rectangular strips
-//                     Step 4: Line a baking sheet with parchment paper
-//                     Step 5: Place the tofu strips on the baking sheet 
-//                     Step 6: Bake in the oven for 25 minutes
-//
-//                 - Prepping the ingredients -
-//                     Step 1: Soak the noodles in room temperature water for 15 minutes
-//                     Step 2: While the noodles are soaking, cut the broccoli into bite sized pieces
-//                     Step 3: Cut the carrots into thinly sliced rectangular strips
-//                     Step 4: Cut the shallots into thin slices
-//                     Step 5: Cut the Chinese chives into 1.5 inch pieces
-//
-//                 - Combining everything -
-//                     Step 1: On medium heat, place some olive oil on a pan and place it on the stove
-//                     Step 2: Add the shallots and sautee for 2 mintues
-//                     Step 3: Add the broccoli and carrots and sautee for 2 minutes
-//                     Step 4: Add the tofu and sautee for 1 minute
-//                     Step 5: Place these sauteed vegetables aside
-//                     Step 6: Turn down the heat to medium
-//                     Step 7: In a pan (you can use the same pan) add the cane sugar, tamarind paste, lime juice, soy sauce, and water and stir
-//                     Step 8: Keep stirring until the tamarind paste is fully dissolved
-//                     Step 9: Add the chives, sauteed veggies, and noodles
-//                     Step 10: Stir the noodles into the sauce for 3 - 5 minutes
-//                     Step 11: Add the bean sprouts
-//                     Step 12: Turn off the heat and stir
-//                     Step 13: Place everything on a plate, top with peanuts and serve alongside a lime wedge               
-//
-//                 Source: https://www.youtube.com/watch?v=1CNavd3G_Qs`,
-//                 "email": "Wil Yeung",
-//                 "ingredients": [
-//                     "Extra firm tofu - 1/2 lb",
-//                     "Rice noodles - 1/4 lb",
-//                     "Broccoli - 1 cup",
-//                     "Shallot - 1",
-//                     "Chinese chives - 1/2 cup",
-//                     "Tamarind paste - 2 tbsp"
-//                     "Cane sugar - 2 tbsp",
-//                     "Lime juice - 2 tbsp ",
-//                     "Soy sauce - 3 tbsp",
-//                     "Water - 1 cup",
-//                     "Bean Sprouts - 1 handful",
-//                     "Peanuts - 2 tbsp",
-//                     "Lime Wedge"
-//                     "Olive oil",
-//                 ],
-//                 "category": "Thai",
-//                 "image": "pad_thai.png"
-//
-//             },
-//         ]);
-//     } catch (error) {
-//         console.log('err', + error)
-//     }
-// }
-//
-// insertRecipeData();
+                - Cooking the Crunchwrap -
+                    Step 1: Place a little bit of oil in a pan on medium high heat
+                    Step 2: Place your crunchwrap on the pan with the folded side down
+                    Step 3: Cook on each side until golden brown 
+
+                Serve with any condiments of your choosing
+
+                Source: https://www.youtube.com/watch?v=P8Ph1Q2ewsw&list=PLxXflsw7KieYZBeixCobOF9kixma52eHF&index=25`,
+                "email": "Bhavna's Kitchen & Living",
+                "ingredients": [
+                    "Black beans - 1 can ",
+                    "Olive oil - 1 tbsp",
+                    "Minced garlic - tbsp",
+                    "Ground cumin - 1/2 tbsp",
+                    "Paprika - 1 tbsp",
+                    "Extra large tortillas - 4",
+                    "Mini flour tortillas - 4",
+                    "Crunchy tostadas - 4",
+                    "Jalapeno - 1",
+                    "Colby monterey jack shredded cheese - as much as you'd like",
+                    "Lettuce - as much as you'd like", 
+                    "Tomato - as much as you'd like",
+                    "Sour cream - as much as you'd like",
+                    "Nacho Cheese - as much as you'd like",
+                ],
+                "category": "Mexican",
+                "image": "crunchwrap.png"
+            },
+            {
+                "name": "Elote",
+                "description": `
+                * Note: this recipe makes 8 pieces of elote *
+
+                - Making the Cheese Mixture -
+                    Step 1: In a small bowl, mix sour cream, mayonnaise, feta or cotija cheese, chili powder, garlic powder, cumin, and salt
+
+                - Cooking the Corn -
+                    Step 1: Heat a grill to medium high
+                    Step 2: Peel the outer layers of the corn down and away from the cob but be sure to keep them attached to the corn
+                    Step 3: use string to twine to tie the outer layers of the corn to the corn handle
+                    Step 4: Rub oil on each corn and make sure each corn is evenly coated
+                    Step 5: Place the corn on the grill and cook for about 12 - 15 minutes or until the corn has blackened a bit on all sides
+
+                - Assembling the Elote -
+                    Step 1: Place the cooked corn on a baking sheet
+                    Step 2: Using a spoon, coat the corn evenly with the cheese mixture
+                    Step 3 (optional): Squeeze some lime on the corn and add some cilantro leaves
+
+                Source: https://www.acouplecooks.com/elote-mexican-street-corn/`,
+                "email": "Sonja Overhiser",
+                "ingredients": [
+                    "Corn - 8 ears",
+                    "Vegetable oil - 1 tbsp",
+                    "Sour cream - 1/2 cup",
+                    "Mayonnaise - 2 tbsp",
+                    "Crumbled cotija or feta cheese - 1/2 cup",
+                    "Chili powder - 1/2 tsp",
+                    "Garlic powder - 1/4 tsp",
+                    "Cumin - 1/4 tsp",
+                    "Salt - 1/4 tsp",
+                    "Lime wedges - for garnish (optional)",
+                    "Cilantro - for garnish (optional)"
+                ],
+                "category": "Mexican",
+                "image": "elote.png"
+            },
+            {
+                "name": "Mexican Bean Stew",
+                "description": `
+                * Note: this recipe makes 4 portions *
+                * This image is from this recipe's website *
+
+                - Preparing the ingredients -
+                    Step 1: Finely mince the garlic
+                    Step 2: Finely chop the onions
+                    Step 3: Finely mince the jalapeno
+
+                - Making the Stew -
+                    Step 1: Place a pan on medium heat and add the oil to it
+                    Step 2: Add the minced garlic, chopped onion, and chopped jalapeno to the pan and sautee it together
+                    Step 3: Once the veggies have turned golden brown, add cumin, paprika, oregano, and black pepper and mix for 30 seconds
+                    Step 4: Add the black beans, chickpeas, corn, crushed tomatoes, vegetable stock, salt, and sugar to the pan
+                    Step 5: Cook everything together for about 10 minutes or until there is a thick sauce like consistency (Make sure to stir occasionally to avoid everything sticking to the bottom of the pan)
+
+                You can top the stew with cilantro and serve with a side of brown rice if desired.
+
+                Source: https://hurrythefoodup.com/mexican-bean-stew/`,
+                "email": "Abril Macías",
+                "ingredients": [
+                    "Vegetable oil - 2 tbsp",
+                    "Garlic - 4 cloves",
+                    "Red onion - 1/2",
+                    "Jalapeno - 1",
+                    "Ground cumin - 1 tsp",
+                    "Paprika - 1 tsp",
+                    "Dried oregano - 1 tsp",
+                    "Black pepper - 1/4 tsp",
+                    "Black beans - 1 can",
+                    "Chickpeas - 1 can",
+                    "Corn - 1 can",
+                    "Crushed tomatoes - 1 can",
+                    "Vegetable broth - 1 cup",
+                    "Salt - 1 tsp",
+                    "Sugar - 1 tsp",
+                    "Fresh cilantro - 1/4 cup - for garnish (optional)",
+                    "Brown rice - 2 cups - to serve with (optional)"
+                ],
+                "category": "Mexican",
+                "image": "mexican_bean_stew.png"
+            },
+            {
+                "name": "Mexican Rice",
+                "description": `
+                * Note: this recipe makes 6 portions *
+                * This image is from this recipe's website *
+
+                - Prepping the ingredients  -
+                    Step 1: Finely mince the garlic
+                    Step 2: Dice the onion
+                
+                - Making the rice -
+                    Step 1: Place a pan on medium heat and add some oil in it
+                    Step 2: Add garlic and onions and sautee for 2-3 minutes
+                    Step 3: Add in the rice and cook for about 2 minutes or until rice looks toasted
+                    Step 4: Add the tomato sauce and vegetable broth and stir
+                    Step 5: Cook everything togethr and bring to a simmer for about 2 minutes
+                    Step 6: Add in corn, carrots, peas, chilli powder, cumin, salt (as per taste), and black pepper (as per taste) and mix
+                    Step 7: Bring everything to a boil
+                    Step 8: Reduce the heat, cover the pan, and let simmer for about 13 - 16 minutes or until rice is thoroughly cooked
+                    Step 9: Add in the tomatoes 
+                
+                Garnish with cilantro if desired and serve. 
+
+                Source: https://damndelicious.net/2014/03/12/mexican-rice/`,
+                "email": "Chungah",
+                "ingredients": [
+                    "Olive oil - 1 tbsp",
+                    "Garlic - 2 cloves",
+                    "Onion - 1",
+                    "Basmati rice - 1 1/2 cups",
+                    "8-ounce tomato sauce can - 1",
+                    "Vegetable broth - 1 1/2 cups",
+                    "Corn kernels - 1 cup",
+                    "Diced carrots - 1/2 cup",
+                    "Frozen peas - 1/2 cup",
+                    "Roma tomatoes - 2",
+                    "Chili powder - 1/4 tsp",
+                    "Cumin - 1/4 tsp",
+                    "Salt - as per taste",
+                    "Black pepper - as per taste",
+                    "Cilantro - 2 tbsp - for garnish (optional)"
+                ],
+                "category": "Mexican",
+                "image": "mexican_rice.png"
+            },
+            {
+                "name": "Guacamole",
+                "description": `
+                * Note: this recipe makes 4 portions *
+                * The image is from this recipe's website *
+
+                - Prepping the ingredients -
+                    Step 1: Peel and pit the avocadoes
+                    Step 2: Dice the tomatoes
+                    Step 3: Dice the onions
+                    Step 4: Mince the garlic
+                    Step 5: Chop the cilantro
+
+                - Making the Guacamole -
+                    Step 1: In a medium sized bowl, mash all of the avocadoes together
+                    Step 2: Squeeze the lime and add its juice into the mashed avocadoes
+                    Step 3: Add in salt and mix
+                    Step 4: Add in the tomatoes, onion, cilantro, garlic (and optionally, the cayenne pepper)
+                    Step 5: Mix everything together
+
+                You can also refrigerate this for 1 hour before serving or you can serve right away. Enjoy with some chips or as a side to any dish!
+
+                Source: https://www.allrecipes.com/recipe/14231/guacamole/`,
+                "email": "Maryellen",
+                "ingredients": [
+                    "Avocadoes - 3",
+                    "Lime - 1",
+                    "Salt - 1 tsp",
+                    "Roma tomatoes - 2",
+                    "Red onion - 1/2 cup",
+                    "Cilantro - 3 tbsp",
+                    "Garlic - 1 tsp",
+                    "Cayenne pepper - 1 pinch (optional)"
+                ],
+                "category": "Mexican",
+                "image": "guacamole.png"
+            },
+            {
+                "name": "Baked Khichdi",
+                "description": `
+                * The image is from this recipe's website *
+
+                - Prepping the Ingredients -
+                    Step 1: Mix rice and dal togther in 1 bowl
+                    Step 2: Wash it 2 - 3 times and then let it soak in water for 30 minutes
+                    Step 3: Finely chop the ginger
+                    Step 4: Finely chop the green chilis
+                    Step 5: Dice the potatoes
+                    Step 4: Dice the carrots
+                    Step 6: Cut the french beans into 1 inch pieces
+                    Step 7: Cut the florets into 1 inch pieces
+
+                - Making the Khichdi -
+                    Step 1: Place an oven save pan on medium head and add oil to it
+                    Step 2: Once the oil is hot, add cumin seeds, cloves, cinnamon, the dried red chili, and the peppercorns
+                    Step 3: Add the chopped ginger and green chili and sautee
+                    Step 4: Add the potatoes, carrots, salt, and turmeric and half cook them
+                    Step 5: Add the french beans, cauliflower, and peas and mix
+                    Step 6: Remove the water from the soaked rice and dal
+                    Step 7: Add the rice and dal mixture to the pan and mix
+                *check*    Step 8: Add enough water to cover your dal and rice
+                    Step 9: Place the lid on and cook for about 20 minutes
+                    Step 10: Once the khichdi is cooked, let it sit for 15 minutes
+                
+                - Baking the Khichdi -
+                    Step 1: Roughly mash everything in the pot with a spoon 
+                    Step 2: Sprinkle ghee, salt, coriander powder, and red chili powder on top
+                    Step 3: Add some cilantro and cheddar cheese 
+                    Step 4: At 350°F, place the pan in the oven for 20 minutes
+                    Step 5: At 400°F, let the khichdi broil for 5 minutes
+
+                Source: https://cookingshooking.com/baked-khichdi/`,
+                "email": "Yaman Agarwal",
+                "ingredients": [
+                    "Basmati rice - 1 1/2 cup",
+                    "Moong or chana dal (Yellow split gram lentils or split chickpea lentils) - 1 cup",
+                    "Oil - 2 tbsp",
+                    "Cumin seeds - 1/2 tsp",
+                    "Cinnamon - 1 bark",
+                    "Cloves - 1/4 tsp",
+                    "Dried red chilli - 1",
+                    "Peppercorns - 1/4 tsp",
+                    "Ginger - 1 1/2 inch",
+                    "Green chilli - 2",
+                    "Potato - 1",
+                    "Carrot - 1",
+                    "Salt - 1 1/2 tsp",
+                    "Turmeric - 1/2 tsp",
+                    "French beans - 10",
+                    "Cauliflower - 3 florets",
+                    "Peas - 1/4 cup",
+                    "Ghee - 1 tbsp",
+                    "Coriander powder - 1/2 tsp",
+                    "Red chili powder - 1/2 tsp",
+                    "Coriander - 7 stems",
+                    "Water - as needed"
+                ],
+                "category": "Indian",
+                "image": "baked_khichdi.png"
+            },
+            {
+                "name": "Soya Keema",
+                "description": `
+                * The image is from this recipe's youtube video *
+
+                - Prepping the Ingredients -
+                    Step 1: Soak the soya granules in hot water for 10 minutes
+                    Step 2: After 10 minutes, strain the soya granules
+                    Step 3: Chop the  onions, green chilli, and coriander leaves
+
+                - Making the Keema -
+                    Step 1: On medium heat, add some oil to a pan
+                    Step 2: Add the cloves, cinnamon, cardamom, fennel, cumin seeds, onions and green chilli
+                    Step 3: Sautee everything until it turns golden brown
+                    Step 4: Add ginger garlic paste and sautee for about 2 minutes
+                    Step 5: Add tomato puree and sautee everything for about 2 minutes
+                    Step 6: Add turmeric powder, kashmiri chilli powder, coridaner powder, cumin powder, and salt and mix everything for about 2 minutes
+                    Step 7: Add the soaked soya granules and mix 
+                    Step 8: Add water and mix 
+                    Step 9: Cover and cook for 10 minutes
+                    Step 10: Add garam masala and black pepper powder and mix
+                    Step 11: Add a little bit of butter and kasuri methi and mix
+                    
+                    Add coriander leaves for garnish and serve
+   
+                Source: https://www.youtube.com/watch?v=qDgh5REOA-Q&list=PLxXflsw7KieYZBeixCobOF9kixma52eHF&index=20`,
+                "email": "Hebbars Kitchen",
+                "ingredients": [
+                    "Oil - 2 tbsp",
+                    "Soya Granules - 1 cup",
+                    "Cinnamon - 1/4 stick",
+                    "Clove - 4 pieces",
+                    "Cardamom - 2 whole",
+                    "Fennel - 1 tsp",
+                    "Cumin seeds - 1 tsp",
+                    "Onion - 2",
+                    "Green chilli - 2",
+                    "Ginger garlic paste - 1 tsp",
+                    "Tomato puree (of 4 large tomatoes) ",
+                    "Turmeric powder - 1/4 tsp",
+                    "Kashmiri chilli powder - 3 tsp",
+                    "Coriander powder - 2 tsp",
+                    "Cumin powder - 1 tsp",
+                    "Salt - 1 tsp",
+                    "Garam masala - 1 tsp",
+                    "Black pepper powder - 1/2 tsp",
+                    "Butter",
+                    "Kasuri methi",
+                    "Coriander leaves",
+                    "Water 1 and 1/2 cups"
+                ],
+                "category": "Indian",
+                "image": "soya_keema.png"
+            },
+            {
+                "name": "Vegetable Dum Biryani",
+                "description": `
+                * The image is from this recipe's youtube video *
+
+                - Prepping the ingredients -
+                    Step 1: Thinly slice the onions
+                    Step 2: Finely chop the green chilis
+                    Step 3: Dice the tomatoes
+                    Step 4: Dice the carrots
+                    Step 5: Chop the french beans
+                    Step 6: Dice the potatoes
+                    Step 7: Chop the cauliflower
+                    Step 8: Finely chop the coriander
+                    Step 9: Finely chop the mint leaves
+
+                - Making the saffron water -
+                    Step 1: Add a pinch of saffron to 1/8 cup of water and mix
+
+                - Making the marinate -
+                    Step 1: To a bowl, add the curd, salt, ginger garlic paste, tumeric, chili powder, coriander powder, and biryani masala and mix
+                    Step 2: Add the sliced onions, chopped green chilis, diced tomatoes, diced carrots, diced potatoes, chopped green beans, chopped cauliflower florets, green peas, chopped coriander, and chopped mint leaves to the mixture
+                    Step 3: Let this mixture sit for atleast 20 minutes
+
+                - Making the rice -
+                    Step 1: Place 2 bowls of rice in a big bowl and wash 2 - 3 times
+                    Step 2: Add some water to the bowl and soak the rice for at least 20 minutes
+                    Step 3: Cook the rice until it is 3/4 of the way done
+                    Step 4: Strain the rice and keep it aside
+
+                - Making the biryani -
+                    Step 1: Place a pan on medium heat and add the ghee and oil to it
+                    Step 2: Add the marinate and sautee it for about 5 minutes
+                    Step 3: Place a lid on the pan and cook for 15 minutes or until the mixture no longer seems liquidy
+                    Step 4: Take half of this mixture you just cooked from the pan and place it aside
+                    Step 5: Spread out the remaining mixture on the bottom of the pan so the whole bottom of the pan is covered
+                    Step 6: Take half of your rice and layer it over this mixture
+                    Step 7: Layer the remaining cooked vegetables you set aside earlier on top of this rice layer
+                    Step 8: Layer the remaining rice on top of the vegetables
+                    Step 9: Sprinkle some chopped coriander, chopped mint leaves, biryani masala, and saffron water on top
+                    Step 10: Turn the heat down to low, place a lid on the pan, and cook for about 15 minutes
+                    Step 11: Turn off the stove and let the biryani rest for about 15 minutes
+
+                You can serve it with some plain curd or raita on the side!
+   
+                Source: https://www.youtube.com/watch?v=S5Ngh6CFRmc&list=PLxXflsw7KieYZBeixCobOF9kixma52eHF&index=3`,
+                "email": "Hema Subramanian",
+                "ingredients": [
+                    "Ghee - 3 tsp",
+                    "Oil - 1 tbsp",
+                    "Curd - 1/2 cup",
+                    "Turmeric powder - 1/4 tsp",
+                    "Chili powder - 2 tsp",
+                    "Coriander powder - 1 tsp",
+                    "Biryani masala - 1 tbsp",
+                    "Cooked basmati rice - 2 cups",
+                    "Salt - 1 tsp",
+                    "Ginger garlic paste - 1 tsp",
+                    "Onion - 2",
+                    "Green chili - 1",
+                    "Tomato - 2",
+                    "Carrot - 1",
+                    "French green beans - a handful",
+                    "Potato - 1",
+                    "Cauliflower florets - 1 cup",
+                    "Green peas - 1/4 cup",
+                    "Coriander leaves - 1 handful",
+                    "Mint leaves - 1 handful",
+                    "Saffron - 1 pinch"
+                ],
+                "category": "Indian",
+                "image": "veg_dum_biryani.png"
+            },
+            {
+                "name": "Raita",
+                "description": `
+                * The image is from this recipe's website *
+
+                
+                - Prepping the ingredients -
+                    Step 1: Finely dice the onions
+                    Step 2: Dice the cucumber
+                    Step 3: Finely chop the cilantro
+                    Step 4: Finely chop the mint leaves
+                    Step 5: If adding serano, chop that 
+
+                Mix everything in a bowl and refridgerate until ready to serve
+                  
+   
+                Source: https://www.feastingathome.com/raita-recipe/#tasty-recipes-29237-jump-target`,
+                "email": "Sylvia Fountaine",
+                "ingredients": [
+                    "Whole milk plain yogurt - 3/4 cup",
+                    "Cucumber - 1/2 cup",
+                    "Onion - 1 tbsp",
+                    "Lemon juice - 2 tsp",
+                    "Olive oil - 1 tbsp",
+                    "Cumin powder - 1/2 tsp",
+                    "Coriander powder - 1/2 tsp",
+                    "Mint - 2 - 3 tbsp",
+                    "Cilantro - 2 - 3 tbsp",
+                    "Salt - 1/4 tsp",
+                    "Black pepper - 1/4 tsp",
+                    "Serano peppers - 1 - 2 tsp(optional)"
+                ],
+                "category": "Indian",
+                "image": "raita.png"
+            },
+            {
+                "name": "Baingan Bharta",
+                "description": `
+                * The image is from https://www.cookwithmanali.com/baingan-bharta/ *
+
+                - Prepping the ingredients -
+                    Step 1: Finely chop the onions
+                    Step 2: Finely chop the tomatoes
+                    Step 3: Finely chop the green chili
+                    Step 4: Chop the coriander
+                    
+                - Making the bharta -
+                    Step 1: Brush some oil on the eggplant
+                    Step 2: Roast the eggplant directly over medium heat
+                    Step 3: Once it is fully roasted, let it cool fully (you can run cold water on it or place it in a bowl of cold water to help with this process)
+                    Step 4: Peel off the skin
+                    Step 5: Take a bowl and mash the eggplant in the bowl
+                    Step 6: Place a pan on medium heat and add some oil to it
+                    Step 7: Once the pan is warm, add the chopped green chilis and onions and fry until golden brown
+                    Step 8: Add red chili powder, turmeric powder, garam masala, and salt and mix
+                    Step 9: Add chopped tomatoes and cook until all the vegetables are soft
+                    Step 10: Add the cooked green peas and mashed eggplant and mix
+                    Step 11: Cook everything together for 5 - 7 minutes
+
+                You can garnish the bharta with chopped coriander leaves and serve hot
+   
+                Source: https://www.indianfoodforever.com/vegetables/baigan-bharta.html`,
+                "email": "Indian Food Forever",
+                "ingredients": [
+                    "Medium Eggplant -  1",
+                    "Cooked green peas - 1/2 cup",
+                    "Onion - 1",
+                    "Tomato - 1",
+                    "Green chili - 1",
+                    "Red chili powder - 1/2 tsp",
+                    "Garam masala - 1/2 tsp",
+                    "Turmeric powder - 1/4 tsp",
+                    "Vegetable oil - 3 tbsp",
+                    "Salt - as per taste",
+                    "Coriander - 1 handful"
+                ],
+                "category": "Indian",
+                "image": "baingan_bharta.png"
+            },
+            {
+                "name": "Eggless Banana Bread",
+                "description": `
+               
+                Step 1: Grab a big bowl and a sieve (a strainer that has holes small enough for sifting flour)
+                Step 2: Add in the flour, baking powder, baking soda and salt into the sieve, sift it all into the big bowl, and set it aside (this will be referred to as your dry ingredients)
+                Step 3: In a separate bowl, peel and add in the 2 overripe bananas, sugar, oil, and milk and mix until you get a combined mixture that is fully mixed (this will be referred to as your wet ingredients)
+                Step 4: Add 1/2 of your dry ingredients into your wet ingredients but only fold them in. Do not overmix! You should still see little streaks of your dry ingredients left once you are done with your first half
+                Step 5: Add in the second 1/2 of your dry ingredients and follow the same instructions as the previous step
+                Step 6: Add in chopped walnuts and mix everything together
+                Step 7: Preheat oven to 350°F
+                Step 8: Line a bread pan (9x5) with parchment paper and pour the batter into the pan
+                Step 9: Bake for 60 - 70 minutes
+                Step 10: Poke the center of the bread with toothpick and check to see if the center comes out clean. If it does, you can remove the bread from the oven, otherwise continue baking and checking with the toothpick until the toothpick comes out clean
+                Step 11: Allow the banana bread to cool fully before cutting it into slices
+
+                Cut the banana bread into slices and serve!
+   
+                Source: https://spicesnflavors.com/vegan-banana-bread-recipe/`,
+                "email": "Sushma Iyer",
+                "ingredients": [
+                    "All purpose flour -  2 cups",
+                    "Baking powder - 1 1/2 tsp",
+                    "Baking soda - 1/2 tsp",
+                    "Salt - 1/2 tsp",
+                    "Overripe bananas - 2 (They should be almost fully black and have freckles)",
+                    "Sugar - 1 cup",
+                    "Oil - 1/3 cup",
+                    "Milk - 1/4 cup",
+                    "Vanilla - 1 tsp",
+                    "Chopped walnuts - 1/2 cup"
+                ],
+                "category": "Dessert",
+                "image": "banana_bread.png"
+            },
+            {
+                "name": "Eggless Pineapple Upside Down Cake",
+                "description": `
+              
+                - Prepping the Ingredients -
+                    Step 1: Melt 6 tbsp of butter and let the 1/2 cup of butter soften
+                    Step 2: Drain the pineapple slices from the can and pat them dry 
+                    Step 3: Drain the cherries and  pat them dry
+
+                - Preparing the Topping -
+                    Step 1: In a round baking pan (9 - 10"), pour in the 6 tbsp of melter butter and make sure it covers the entire bottom and all sides of the pan
+                    Step 2: Sprinkle the brown sugar evenly over the butter and spread it to cover the whole pan and the sides
+                    Step 3: Arrange the pineapple rings. Start by placing one ring in the center and then put the rest of the rings around it. For the sides, you can cut the rings in hald and place them on the side
+                    Step 4: Place the cherries in the center of the rings
+                    Step 5: Place the pan in the refridgerator while you prepare the batter
+
+                - Making the Batter -
+                    Step 1: Preheat oven to 350°F
+                    Step 2: In a bowl, whisk together flour, baking powder, and baking soda
+                    Step 3: in a small bowl, combine the milk and vinegar together and set aside
+                    Step 4: In a large bowl, beat together the sugar and 1/2 cup of softened butter until it is plate and creamy (this should take about 3-4 minutes)
+                    Step 5: Add in the salt and vanilla extract and mix to combine
+                    Step 6: Into the sugar and butter mixture, sift in half of the flour mixture
+                    Step 7: Mix everything to combine
+                    Step 8: Slowly add in the milk and vinegar mizture to this
+                    Step 9: Add in the second half of the flour mixture and combine thoroughly but do not overmix
+                    Step 10: Pour the cake mixture into the pan
+                    Step 11: Bake for 30 minutes
+                    Step 12: Take the pan out of the oven and loosely cover it with foil
+                    Step 13: Place it back in the oven and bake for another 15 - 20 minutes. You can insert a toothpick in the middle to see if it comes out clean. If it does, it is baked properly, otherwise you need to bake it longer
+                    Step 14: Remove from the oven and let it cool in the pan for about 20 minutes
+                    Step 15: Run a thin mettal spatula or knife around the inside rim of the pan to loosen the cake and flip it upside down onto a serving dish
+
+                Serve and enjoy!
+               
+                Source: https://mommyshomecooking.com/eggless-pineapple-upside-down-cake/#recipe`,
+                "email": "Oriana Romero",
+                "ingredients": [
+                    "Unsalted butter -  6 tbsp + 1/2 cup",
+                    "Brown sugar - 1/2 cup",
+                    "Pineapple rings - 10",
+                    "Maraschino cherries - 15-20",
+                    "All-purpose flour - 2 cups",
+                    "Baking powder - 3 tsp",
+                    "Baking soda - 1/4 tsp",
+                    "Milk - 1 cup",
+                    "Apple cider vinegar or white vinegar - 1 tbsp",
+                    "Sugar - 1 cup",
+                    "Salt - 1/4 tsp",
+                    "Vanilla extract - 1 tsp"
+                ],
+                "category": "Dessert",
+                "image": "pineapple_upside_down_cake.png"
+            },
+            {
+                "name": "Eggless Blueberry Muffins",
+                "description": `
+              
+                Step 1: In a bowl, add in the plain yogurt and oil and whisk together until thoroughly combined
+                Step 2: Add in the sugar and whisk
+                Step 3: Add in the vanilla extract and whisk
+                Step 4: Add in the all purpose flour and whisk
+                Step 5: Add in the salt and baking powder and whisk
+                Step 6: Add in 1/4 cup of milk and whisk
+                Step 7: Add in 1 tbsp of milk and whisk
+                Step 8: Fold in the blueberries
+                Step 10: Grab a cupcake pan and place 6 cupcake liners in 6 molds
+                Step 11: Fill each cupcake liner eith batter until it is 3/4 full
+                Step 12: Top each batter off with 1 tsp of sugar
+                Step 13: Bake at 350°F for 20 - 25 minutes
+               
+                Source: https://www.youtube.com/watch?v=r59WXcjsNxE`,
+                "email": "Harshita's Kitchen",
+                "ingredients": [
+                    "Plain yogurt -  2 tbsp",
+                    "Vegetable oil - 2 1/2 tbsp",
+                    "Sugar - 6 tbsp",
+                    "Vanilla extract - 3/4 tsp",
+                    "All purpose flour - 3/4 cup",
+                    "Salt - 1/8 tsp",
+                    "Baking powder - 1 tsp",
+                    "Milk - 1/4 cup + 1 tbsp",
+                    "Blueberries - 1/4 cup"
+                ],
+                "category": "Dessert",
+                "image": "blueberry_muffin.png"
+            },
+            {
+                "name": "Eggless Marble Cake",
+                "description": `
+              
+                Step 1: Preheat the oven to 350°F for at least 15 minutes
+                Step 2: Grab a 0.5 x 5 inch loaf pan and lightly grease it
+                Step 3: In a big bowl, mix the flour, baking powder, baking soda, and salt and set side
+                Step 4: In another bowl, mix together milk and vinegar and set aside
+                Step 5: In a separate bowl, beat the butter and sugar together just until they are mixed
+                Step 6: Once those ingredients are mixed, add in vanilla extract and beat again just until it is mixed
+                Step 7: Add in the flour mixture to the milk mixture and beat just until combined
+                Step 8: In a separate bowl, stir together the cocoa powder, hot water, and espresso powder
+                Step 9: In a separate small bowl, place 1/3 of the vanilla batter and fold in the cocoa mixture into the batter until it is fully combined
+                Step 10: Spread 1/3 of the vanilla batter into the loaf pan
+                Step 11: Place 1/2 of the chocolate batter on top of the vanilla batter (do not mix or spread out)
+                Step 12: Place 1/3 of the vanilla batter on top of the chocolate batter (do not mix or spread out)
+                Step 13: Place the remaining chocolate batter on top of the vanilla batter (do not mix or spread out)
+                Step 14: Place the remaining vanilla batter on top of the chocolate batter
+                Step 15: Bake at 350°F for 50 - 60 minutes or until a toothpick poked in the center of the load comes out clean
+                Step 16: Let the loaf fully cool before taking it out of the pan
+
+                Remove the cake from the pan and serve.
+               
+                Source: https://mommyshomecooking.com/eggless-marble-cake/#recipe`,
+                "email": "Oriana Romero",
+                "ingredients": [
+                    "All-purpose flour -  3 cups",
+                    "Baking powder - 3 tsp",
+                    "Baking soda - 1/4 tsp",
+                    "Salt - 1/2 tsp",
+                    "Milk - 1 and 1/2 cup",
+                    "Apple cider vinegar or white vinegar - 1 and 1/2 tbsp",
+                    "Softended unsalted butter - 3/4 cup",
+                    "Sugar - 1 and 1/2 cups",
+                    "Vanilla extract - 2 tsps",
+                    "Hot water - 1/3 cup",
+                    "Unsweetened cocoa powder - 1/4 cup",
+                    "Instant espresso powder (optional) - 1/2 tsp"
+                ],
+                "category": "Dessert",
+                "image": "marble_cake.png"
+            },
+        ]);
+    } catch (error) {
+        console.log('err', + error)
+    }
+}
+
+insertRecipeData();
