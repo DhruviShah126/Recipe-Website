@@ -35,9 +35,22 @@ exports.allCategories = async(req, res) => {
 }
 
 /*
+    PATH: /categories/:id
+*/
+exports.specificCategory = async(req, res) => {
+    try {
+        let categoryId = req.params.id;
+        const categoryById = await Recipe.find({'category': categoryId});
+        res.render('categories', {title: 'Category', categoryById});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
+/*
     PATH: /recipe/:id
 */
-exports.exploreRecipes = async(req, res) => {
+exports.specificRecipe = async(req, res) => {
     try {
         let recipeId = req.params.id;
         const recipe = await Recipe.findById(recipeId);
