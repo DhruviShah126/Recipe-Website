@@ -60,6 +60,20 @@ exports.specificRecipe = async(req, res) => {
     }
 }
 
+/*
+    PATH: /search
+*/
+exports.searchForRecipe = async(req, res) => {
+    try {
+        let searchTerm = req.body.searchTerm;
+        let recipe = await Recipe.find({$text: {$search: searchTerm, $diacriticSensitive: true}});
+        // res.json(recipe);
+        res.render('search', {title: 'Search', recipe});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
 // async function insertCategoryData() {
 //     try {
 //         await Category.insertMany([
