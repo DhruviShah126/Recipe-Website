@@ -67,8 +67,20 @@ exports.searchForRecipe = async(req, res) => {
     try {
         let searchTerm = req.body.searchTerm;
         let recipe = await Recipe.find({$text: {$search: searchTerm, $diacriticSensitive: true}});
-        // res.json(recipe);
         res.render('search', {title: 'Search', recipe});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
+/*
+    PATH: /latest-recipes
+*/
+exports.viewLatest = async(req, res) => {
+    try {
+        const limitNum = 20;
+        const recipe = await Recipe.find({}).sort({ _id: -1}).limit(limitNum);
+        res.render('view-latest', {title: 'View Latest', recipe});
     } catch(error) {
         res.status(500).send({message: error.message || "Error Occurred"});
     }
