@@ -100,6 +100,20 @@ exports.randomRecipe = async(req, res) => {
     }
 }
 
+/*
+    PATH: /share-recipe
+*/
+exports.shareRecipe = async(req, res) => {
+    try {
+        // let count = await Recipe.find().countDocuments();
+        // let random = Math.floor(Math.random() * count);
+        // let recipe = await Recipe.findOne().skip(random).exec(); 
+        res.render('share-recipe', {title: 'Share a Recipe'});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
 // async function insertCategoryData() {
 //     try {
 //         await Category.insertMany([

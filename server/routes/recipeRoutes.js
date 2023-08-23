@@ -9,5 +9,6 @@ router.get('/recipe/:id', recipeController.specificRecipe);
 router.post('/search', recipeController.searchForRecipe);
 router.get('/latest-recipes', recipeController.viewLatest);
 router.get('/random-recipe', recipeController.randomRecipe);
+router.get('/share-recipe', recipeController.shareRecipe);
 
 module.exports = router;
