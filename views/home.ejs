@@ -1,5 +1,5 @@
 <div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
-    <div >
+    <div>
         <h1 class="display-5 fw-bold mb-3">Vegetarian Eats</h1>
         <p class="lead">
             Explore the selection of vegetarain recipes including: easy desserts, quick dinner ideas, and recipes from a multitude of cuisines to choose from!
@@ -10,6 +10,13 @@
             <a href="/random-recipe" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Try a Random Recipe</a>
         </div>
     </div>
+</div>
+<div>
+    <% if(infoSubmitObj != '') { %>
+        <div class="col-8 alert alert-success" role="alert">
+            <%= infoSubmitObj %>
+        </div>
+    <% } %>
 </div>
 
 <!-- Categories Section -->

@@ -16,8 +16,9 @@ exports.homePage = async(req, res) => {
         const indian = await Recipe.find({'category': 'Indian'}).limit(limitNum);
         const dessert = await Recipe.find({'category': 'Dessert'}).limit(limitNum);
         const food = { latest, mexican, indian, chinese, italian, dessert };
+        const infoSubmitObj = req.flash('infoSubmit');
 
-        res.render('home', {title: 'Recipes - Home Page', categories, food});
+        res.render('home', {title: 'Recipes - Home Page', categories, food, infoSubmitObj});
     } catch(error) {
         res.status(500).send({message: error.message || "Error Occurred"});
     }
@@ -68,6 +69,21 @@ exports.specificRecipe = async(req, res) => {
         let recipeId = req.params.id;
         const recipe = await Recipe.findById(recipeId);
         res.render('recipe', {title: 'Recipe', recipe});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
+/*
+    PATH: /recipe/:id
+*/
+exports.deleteRecipe = async(req, res) => {
+    try {
+        let recipeId = req.params.id;
+        const recipe = await Recipe.findById(recipeId);
+        await Recipe.deleteOne({name: recipe.name})
+        req.flash('infoSubmit', recipe.name + ' has been deleted')
+        res.redirect('/');
     } catch(error) {
         res.status(500).send({message: error.message || "Error Occurred"});
     }
@@ -162,3 +178,4 @@ exports.shareRecipeOnPost = async(req, res) => {
         res.redirect('/share-recipe');
     }
 }
+

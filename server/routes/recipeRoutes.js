@@ -3,10 +3,12 @@ const router = express.Router();
 const recipeController = require('../controllers/recipeController.js');
 
 router.get('/', recipeController.homePage);
+router.post('/', recipeController.homePage);
 router.get('/about', recipeController.aboutPage);
 router.get('/categories', recipeController.allCategories);
 router.get('/categories/:id', recipeController.specificCategory);
 router.get('/recipe/:id', recipeController.specificRecipe);
+router.post('/recipe/:id', recipeController.deleteRecipe);
 router.post('/search', recipeController.searchForRecipe);
 router.get('/latest-recipes', recipeController.viewLatest);
 router.get('/random-recipe', recipeController.randomRecipe);
