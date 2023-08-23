@@ -11,11 +11,24 @@ exports.homePage = async(req, res) => {
         const categories = await Category.find({}).limit(limitNum);
         const latest = await Recipe.find({}).sort({_id: -1}).limit(limitNum);
         const mexican = await Recipe.find({'category': 'Mexican'}).limit(limitNum);
+        const chinese = await Recipe.find({'category': 'Chinese'}).limit(limitNum);
+        const italian = await Recipe.find({'category': 'Italian'}).limit(limitNum);
         const indian = await Recipe.find({'category': 'Indian'}).limit(limitNum);
         const dessert = await Recipe.find({'category': 'Dessert'}).limit(limitNum);
-        const food = { latest, mexican, indian, dessert };
+        const food = { latest, mexican, indian, chinese, italian, dessert };
 
         res.render('home', {title: 'Recipes - Home Page', categories, food});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
+/*
+    PATH: /about
+*/
+exports.aboutPage = async(req, res) => {
+    try {
+        res.render('about', {title: 'Recipes - About Page'});
     } catch(error) {
         res.status(500).send({message: error.message || "Error Occurred"});
     }
@@ -105,12 +118,48 @@ exports.randomRecipe = async(req, res) => {
 */
 exports.shareRecipe = async(req, res) => {
     try {
-        // let count = await Recipe.find().countDocuments();
-        // let random = Math.floor(Math.random() * count);
-        // let recipe = await Recipe.findOne().skip(random).exec(); 
-        res.render('share-recipe', {title: 'Share a Recipe'});
+        const infoErrorsObj = req.flash('infoErrors');
+        const infoSubmitObj = req.flash('infoSubmit');
+        res.render('share-recipe', {title: 'Share a Recipe', infoErrorsObj, infoSubmitObj});
     } catch(error) {
         res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
+/*
+    PATH: /share-recipe
+*/
+exports.shareRecipeOnPost = async(req, res) => {
+    try {
+        let imageUploadFile;
+        let uploadPath;
+        let newImageName;
+
+        if (!req.files || Object.keys(req.files).length === 0) {
+            console.log('No file was uploaded');
+        } else {
+            imageUploadFile = req.files.image;
+            newImageName = Date.now() + imageUploadFile.name;
+            uploadPath = require('path').resolve('./') + '/public/uploads/' + newImageName;
+            imageUploadFile.mv(uploadPath, function(err) {
+                if(err) return res.status(500).send(err);
+            })
+        }
+
+        const newRecipe = new Recipe({
+            name: req.body.name,
+            description: req.body.description,
+            ingredients: req.body.ingredients,
+            category: req.body.category,
+            image: newImageName,
+            email: 'test',
+        });
+        await newRecipe.save();
+        req.flash('infoSubmit', 'Your recipe has been shared!')
+        res.redirect('/share-recipe');
+    } catch(error) {
+        req.flash('infoErrors', error)
+        res.redirect('/share-recipe');
     }
 }
 
