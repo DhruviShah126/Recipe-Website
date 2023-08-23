@@ -8,5 +8,6 @@ router.get('/categories/:id', recipeController.specificCategory);
 router.get('/recipe/:id', recipeController.specificRecipe);
 router.post('/search', recipeController.searchForRecipe);
 router.get('/latest-recipes', recipeController.viewLatest);
+router.get('/random-recipe', recipeController.randomRecipe);
 
 module.exports = router;

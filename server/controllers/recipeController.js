@@ -86,6 +86,20 @@ exports.viewLatest = async(req, res) => {
     }
 }
 
+/*
+    PATH: /random-recipe
+*/
+exports.randomRecipe = async(req, res) => {
+    try {
+        let count = await Recipe.find().countDocuments();
+        let random = Math.floor(Math.random() * count);
+        let recipe = await Recipe.findOne().skip(random).exec(); 
+        res.render('random-recipe', {title: 'View Latest', recipe});
+    } catch(error) {
+        res.status(500).send({message: error.message || "Error Occurred"});
+    }
+}
+
 // async function insertCategoryData() {
 //     try {
 //         await Category.insertMany([
